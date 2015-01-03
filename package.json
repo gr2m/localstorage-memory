@@ -1,6 +1,6 @@
 {
   "name": "localstorage-memory",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "localStorage-compatible API, but only stored in memory",
   "main": "lib/localstorage-memory.js",
   "directories": {
@@ -9,8 +9,8 @@
   "scripts": {
     "jshint": "jshint -c .jshintrc lib/localstorage-memory.js bin/ tests/",
     "test": "npm run jshint && npm run test-browser",
-    "test-node": "sh bin/test-node.sh",
     "test-browser": "node ./bin/test-browser.js",
+    "test-node": "sh bin/test-node.sh",
     "dev-server": "http-server -a 127.0.0.1 -p 8000",
     "docs": "doxx --source lib/ --target docs/ --template docs/template.jade",
     "deploy": "gh-pages-deploy "
