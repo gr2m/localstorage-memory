@@ -10,7 +10,7 @@ be used as a drop-in replacement, the only exception being the
 Associative array syntax `localStorage['myKey'] = 'myValue'`.
 
 
-## Downlaod or Installation
+## Download or Installation
 
 - Download [localstorage-memory.js](https://raw.githubusercontent.com/gr2m/localstorage-memory/master/lib/localstorage-memory.js)
 - or: install via Bower: `bower install --save localstorage-memory`
