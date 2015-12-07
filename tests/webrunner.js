@@ -39,15 +39,6 @@ function asyncLoadScript(url, callback) {
 
 function startTests() {
 
-  function loadNext() {
-    if (scriptsToLoad.length) {
-      var script = scriptsToLoad.shift();
-      asyncLoadScript(script, loadNext);
-    } else {
-      onReady();
-    }
-  }
-
   function onReady() {
     var runner = mocha.run();
     window.results = {
@@ -75,6 +66,15 @@ function startTests() {
       window.results.completed = true;
       window.results.passed++;
     });
+  }
+
+  function loadNext() {
+    if (scriptsToLoad.length) {
+      var script = scriptsToLoad.shift();
+      asyncLoadScript(script, loadNext);
+    } else {
+      onReady();
+    }
   }
 
   loadNext();
