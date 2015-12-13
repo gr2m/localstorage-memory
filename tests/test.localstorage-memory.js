@@ -60,4 +60,16 @@ describe('localStorageMemory()', function () {
       expect(localStorageMemory.getItem(456)).to.be(null);
     });
   });
+  describe('localStorageMemory.length', function () {
+    it ('duplicate puts don\'t increase length', function () {
+      localStorageMemory.setItem('123', 'foo');
+      localStorageMemory.setItem('123', 'foo');
+      expect(localStorageMemory.length).to.be(1);
+    });
+    it ('remove non-existent item doesn\'t decrease length', function () {
+      localStorageMemory.setItem('123', 'foo');
+      localStorageMemory.removeItem('abc');
+      expect(localStorageMemory.length).to.be(1);
+    });
+  });
 });
