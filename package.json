@@ -1,6 +1,5 @@
 {
   "name": "localstorage-memory",
-  "version": "1.0.1",
   "description": "localStorage-compatible API, but only stored in memory",
   "main": "lib/localstorage-memory.js",
   "directories": {
@@ -13,11 +12,12 @@
     "test-node": "sh bin/test-node.sh",
     "dev-server": "http-server -a 127.0.0.1 -p 8000",
     "docs": "doxx --source lib/ --target docs/ --template docs/template.jade",
-    "deploy": "gh-pages-deploy "
+    "deploy": "gh-pages-deploy ",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/gr2m/localstorage-memory"
+    "url": "https://github.com/gr2m/localstorage-memory"
   },
   "keywords": [
     "localstorage",
@@ -40,7 +40,8 @@
     "mocha": "^2.1.0",
     "request": "^2.51.0",
     "sauce-connect-launcher": "^0.9.3",
-    "wd": "^0.3.11"
+    "wd": "^0.3.11",
+    "semantic-release": "^6.0.3"
   },
   "gh-pages-deploy": {
     "staticpath": "docs"
