@@ -1,9 +1,5 @@
 sudo: false
 language: node_js
-node_js:
-  - 6
-  - 8
-  - 10
 cache:
   directories:
     - ~/.npm
@@ -16,9 +12,27 @@ branches:
     - next
     - /^greenkeeper.*$/
 
-before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-script: CLIENT=saucelabs:firefox npm test
-after_success:
-  - npm run semantic-release
+stages:
+  - lint
+  - test
+  - name: release
+    if: branch = master AND type IN (push)
+
+jobs:
+  include:
+    - stage: lint
+      script: npm run jshint
+    - stage: test
+      node_js: 6
+      script: test-node
+    - node_js: 8
+      script: test-node
+    - node_js: 10
+      script: test-node
+    - node_js: lts/*
+      before_script:
+        - export DISPLAY=:99.0
+        - sh -e /etc/init.d/xvfb start
+      script: CLIENT=saucelabs:firefox npm run test-browser
+    - stage: release
+      script: npm run semantic-release
