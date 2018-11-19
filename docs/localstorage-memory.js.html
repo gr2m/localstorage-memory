@@ -100,7 +100,7 @@
             </p>
           </section>
           <div class="description"><p>number of stored items.</p> </div>
-          <pre><code class="language-javascript">localStorageMemory.length = 0;</code></pre>
+          <pre><code class="language-javascript">localStorageMemory.length = 0</code></pre>
           <section id="getItem">
             <h1>getItem</h1>
             <h5 class="subheader"></h5>
@@ -109,9 +109,9 @@
             </p>
           </section>
           <div class="description"><p>returns item for passed key, or null</p> </div>
-          <pre><code class="language-javascript">localStorageMemory.getItem = function(key) {
-  return cache[key] || null;
-};</code></pre>
+          <pre><code class="language-javascript">localStorageMemory.getItem = function (key) {
+  return cache[key] || null
+}</code></pre>
           <section id="setItem">
             <h1>setItem</h1>
             <h5 class="subheader"></h5>
@@ -120,14 +120,17 @@
             </p>
           </section>
           <div class="description"><p>sets item for key to passed value, as String</p> </div>
-          <pre><code class="language-javascript">localStorageMemory.setItem = function(key, value) {
+          <pre><code class="language-javascript">localStorageMemory.setItem = function (key, value) {
   if (typeof value === 'undefined') {
-    localStorageMemory.removeItem(key);
+    localStorageMemory.removeItem(key)
   } else {
-    cache[key] = '' + value;
-    localStorageMemory.length++;
+    if (!(cache.hasOwnProperty(key))) {
+      localStorageMemory.length++
+    }
+
+    cache[key] = '' + value
   }
-};</code></pre>
+}</code></pre>
           <section id="removeItem">
             <h1>removeItem</h1>
             <h5 class="subheader"></h5>
@@ -136,10 +139,12 @@
             </p>
           </section>
           <div class="description"><p>removes item for passed key</p> </div>
-          <pre><code class="language-javascript">localStorageMemory.removeItem = function(key) {
-  delete cache[key];
-  localStorageMemory.length--;
-};</code></pre>
+          <pre><code class="language-javascript">localStorageMemory.removeItem = function (key) {
+  if (cache.hasOwnProperty(key)) {
+    delete cache[key]
+    localStorageMemory.length--
+  }
+}</code></pre>
           <section id="key">
             <h1>key</h1>
             <h5 class="subheader"></h5>
@@ -148,9 +153,9 @@
             </p>
           </section>
           <div class="description"><p>returns name of key at passed index</p> </div>
-          <pre><code class="language-javascript">localStorageMemory.key = function(index) {
-  return Object.keys(cache)[index] || null;
-};</code></pre>
+          <pre><code class="language-javascript">localStorageMemory.key = function (index) {
+  return Object.keys(cache)[index] || null
+}</code></pre>
           <section id="clear">
             <h1>clear</h1>
             <h5 class="subheader"></h5>
@@ -159,17 +164,17 @@
             </p>
           </section>
           <div class="description"><p>removes all stored items and sets length to 0</p> </div>
-          <pre><code class="language-javascript">localStorageMemory.clear = function() {
-  cache = {};
-  localStorageMemory.length = 0;
-};
+          <pre><code class="language-javascript">localStorageMemory.clear = function () {
+  cache = {}
+  localStorageMemory.length = 0
+}
 
 if (typeof exports === 'object') {
-  module.exports = localStorageMemory;
+  module.exports = localStorageMemory
 } else {
-  root.localStorageMemory = localStorageMemory;
+  root.localStorageMemory = localStorageMemory
 }
-})(this);</code></pre>
+})(this)</code></pre>
         </div>
       </div>
     </div>
