@@ -2,17 +2,11 @@
   "name": "localstorage-memory",
   "description": "localStorage-compatible API, but only stored in memory",
   "main": "lib/localstorage-memory.js",
-  "directories": {
-    "test": "tests"
-  },
   "scripts": {
-    "jshint": "jshint -c .jshintrc lib/localstorage-memory.js bin/ tests/",
-    "test": "npm run jshint && npm run test-browser",
-    "test-browser": "node ./bin/test-browser.js",
-    "test-node": "sh bin/test-node.sh",
-    "dev-server": "http-server -a 127.0.0.1 -p 8000",
+    "pretest": "standard",
+    "test": "mocha tests",
     "docs": "doxx --source lib/ --target docs/ --template docs/template.jade",
-    "deploy": "gh-pages-deploy",
+    "update-docs": "gh-pages-deploy",
     "semantic-release": "semantic-release"
   },
   "repository": {
@@ -31,17 +25,12 @@
   },
   "homepage": "http://gr2m.github.com/localstorage-memory",
   "devDependencies": {
-    "chai": "^1.10.0",
     "doxx": "^1.2.1",
     "expect.js": "^0.3.1",
     "gh-pages-deploy": "^0.1.1",
-    "http-server": "^0.7.4",
-    "jshint": "^2.5.11",
     "mocha": "^2.1.0",
-    "request": "^2.51.0",
-    "sauce-connect-launcher": "^0.9.3",
-    "wd": "^0.3.11",
-    "semantic-release": "^15.12.0"
+    "semantic-release": "^15.12.0",
+    "standard": "^12.0.1"
   },
   "gh-pages-deploy": {
     "staticpath": "docs"
