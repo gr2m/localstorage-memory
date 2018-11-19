@@ -20,6 +20,12 @@ describe('localStorageMemory()', function () {
         expect(localStorageMemory.getItem('foo')).to.be(null);
       });
     });
+    describe('foo can take empty string value', function () {
+      it('returns empty string, not a null or undefined', function () {
+        localStorageMemory.setItem('foo', '');
+        expect(localStorageMemory.getItem('foo')).to.be('');
+      });
+    });
   });
   describe('localStorageMemory.setItem(123, 456)', function () {
     it('stores key & value as string', function () {
