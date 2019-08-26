@@ -1,16 +1,11 @@
-sudo: false
 language: node_js
-node_js: lts/*
-cache:
-  directories:
-    - ~/.npm
+cache: npm
 
 # Trigger a push build on master and greenkeeper branches + PRs build on every branches
 # Avoid double build on PRs (See https://github.com/travis-ci/travis-ci/issues/1147)
 branches:
   only:
     - master
-    - next
     - /^greenkeeper.*$/
 
 stages:
@@ -21,9 +16,9 @@ stages:
 jobs:
   include:
     - stage: test
-      node_js: 6
+      node_js: 10
     - node_js: 8
-    - node_js: 10
+    - node_js: 12
     - stage: release
       script: npm run semantic-release
     - script: npm run update-docs
