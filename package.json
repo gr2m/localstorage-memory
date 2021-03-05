@@ -9,10 +9,7 @@
     "update-docs": "gh-pages-deploy",
     "semantic-release": "semantic-release"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gr2m/localstorage-memory"
-  },
+  "repository": "github:gr2m/localstorage-memory",
   "keywords": [
     "localstorage",
     "browser",
@@ -20,9 +17,6 @@
   ],
   "author": "Gregor Martynus",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/gr2m/localstorage-memory/issues"
-  },
   "homepage": "http://gr2m.github.com/localstorage-memory",
   "devDependencies": {
     "doxx": "^1.2.1",
