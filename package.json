@@ -22,7 +22,7 @@
     "doxx": "^1.2.1",
     "expect.js": "^0.3.1",
     "gh-pages-deploy": "^0.1.1",
-    "mocha": "^2.1.0",
+    "mocha": "^10.2.0",
     "semantic-release": "^19.0.3",
     "standard": "^12.0.1"
   },
